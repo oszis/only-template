@@ -660,10 +660,6 @@ only-template
 
 Использовать **LF** переводы строк.
 
-### Выборка
-
-Выборку узлов **DOM** настоятельно рекомендуется делать через специальные методы компонентов: `nFind`, `nFindSingle` и т.д. в файле `src/common/js/helpers.js`.
-
 
 ### Именование переменных
 
@@ -674,13 +670,13 @@ only-template
 **Неправильно:**
 
 ```js
-let container = this.nFindSingle('element');
+let container = document.querySelector('element');
 ```
 
 **Правильно:**
 
 ```js
-let nContainer = this.nFindSingle('element');
+let nContainer = document.querySelector('element');
 ```
 
 ## Использование линтера
