@@ -1,0 +1,5 @@
+class ${componentClassName} {
+    constructor() {}
+}
+
+export default ${componentClassName};

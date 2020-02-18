@@ -1,0 +1,39 @@
+{
+    "extends": [
+        "airbnb-base",
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": false,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "class-methods-use-this":"off",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "max-len": [2, {"code": 200, "tabWidth": 4, "ignoreUrls": true}]
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    }
+}

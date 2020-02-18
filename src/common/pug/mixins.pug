@@ -1,0 +1,33 @@
+mixin svg(args)
+    svg&attributes(attributes)
+        use(xlink:href=`#${args.name}`)
+
+mixin img(args)
+    img(src=args.lazy === false ? args.path: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    )(data-src=args.lazy === false ? '': args.path alt = args.alt ? args.alt : '')&attributes(attributes)(class=args.lazy === false ? '': 'lazy')
+
+mixin svg-inline(args)
+    svg&attributes(attributes)(xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' width=args.width height=args.height)
+        path(d=args.d fill-opacity="0")
+
+mixin autoplay-video(args)
+    -
+        var autoplay
+        if (args.autoplay) {
+            autoplay = 'autoplay';
+        }
+        var baseAttributes = {
+            src: args.path,
+            preload: 'metadata',
+            playsinline: 'playsinline',
+            muted: 'muted',
+            autoplay: autoplay,
+            loop: 'loop',
+        }
+        Object.keys(baseAttributes).forEach(attribute => {
+            if (attribute in args && !args[attribute]) {
+                delete baseAttributes[attribute];
+            }
+        });
+        Object.assign(attributes, baseAttributes);
+    video.autoplay-video&attributes(attributes)

@@ -1,0 +1,15 @@
+- var blocks = {};
+- function createBlock(key) { if (blocks[key]) { blocks[key]() } }
+- function clearBlocks(keys) { for(var i = 0; i < keys.length; ++i) { blocks[keys[i]] = null; } }
+mixin set(key)
+    - blocks[key] = this.block
+- function range(length) { return Array.apply(0, Array(length)).map((value, i) => i) }
+-
+    function chunks(list, size) {
+        var i,j,temparray,chunk = 10;
+        var res = [];
+        for (i=0,j=list.length; i<j; i+=size) {
+            res.push(list.slice(i,i+size));
+        }
+        return res;
+    }
